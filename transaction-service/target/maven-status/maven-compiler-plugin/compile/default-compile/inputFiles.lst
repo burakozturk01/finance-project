@@ -1,6 +1,0 @@
-/Users/burak.ozturk/CascadeProjects/OdealProject/CascadeProjects/windsurf-project/transaction-service/src/main/java/com/odeal/transaction/TransactionServiceApplication.java
-/Users/burak.ozturk/CascadeProjects/OdealProject/CascadeProjects/windsurf-project/transaction-service/src/main/java/com/odeal/transaction/controller/TransactionController.java
-/Users/burak.ozturk/CascadeProjects/OdealProject/CascadeProjects/windsurf-project/transaction-service/src/main/java/com/odeal/transaction/entity/Transaction.java
-/Users/burak.ozturk/CascadeProjects/OdealProject/CascadeProjects/windsurf-project/transaction-service/src/main/java/com/odeal/transaction/repository/TransactionRepository.java
-/Users/burak.ozturk/CascadeProjects/OdealProject/CascadeProjects/windsurf-project/transaction-service/src/main/java/com/odeal/transaction/service/RabbitMQSender.java
-/Users/burak.ozturk/CascadeProjects/OdealProject/CascadeProjects/windsurf-project/transaction-service/src/main/java/com/odeal/transaction/service/TransactionService.java

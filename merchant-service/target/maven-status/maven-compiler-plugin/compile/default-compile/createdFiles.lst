@@ -1,5 +1,0 @@
-com/odeal/merchant/entity/Merchant.class
-com/odeal/merchant/controller/MerchantController.class
-com/odeal/merchant/service/MerchantService.class
-com/odeal/merchant/repository/MerchantRepository.class
-com/odeal/merchant/MerchantServiceApplication.class
