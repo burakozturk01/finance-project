@@ -1,0 +1,59 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-LedgerServiceApplication<ledger-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/ledger-service",
+            "mainClass": "com.odeal.ledger.LedgerServiceApplication",
+            "projectName": "ledger-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/ledger-service/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64791 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ledger-service"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MerchantServiceApplication<merchant-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/merchant-service",
+            "mainClass": "com.odeal.merchant.MerchantServiceApplication",
+            "projectName": "merchant-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/merchant-service/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64792 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=merchant-service"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TransactionServiceApplication<transaction-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/transaction-service",
+            "mainClass": "com.odeal.transaction.TransactionServiceApplication",
+            "projectName": "transaction-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/transaction-service/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64794 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=transaction-service"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PayoutServiceApplication<payout-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/payout-service",
+            "mainClass": "com.odeal.payout.PayoutServiceApplication",
+            "projectName": "payout-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/payout-service/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64793 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=payout-service"
+        },
+        {
+            "name": "Run All Microservices",
+            "type": "java",
+            "request": "launch",
+            "preLaunchTask": "run-all-microservices",
+            "mainClass": "com.odeal.ledger.LedgerServiceApplication",
+            "projectName": "ledger-service",
+            "cwd": "${workspaceFolder}/ledger-service",
+            "envFile": "${workspaceFolder}/ledger-service/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64791 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ledger-service"
+        }
+    ]
+}

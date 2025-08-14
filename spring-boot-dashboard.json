@@ -1,0 +1,28 @@
+{
+  "profiles": [
+    {
+      "name": "ledger-service",
+      "cwd": "ledger-service",
+      "command": "export $(cat .env | xargs) && mvn spring-boot:run",
+      "env": {}
+    },
+    {
+      "name": "merchant-service",
+      "cwd": "merchant-service",
+      "command": "export $(cat .env | xargs) && mvn spring-boot:run",
+      "env": {}
+    },
+    {
+      "name": "payout-service",
+      "cwd": "payout-service",
+      "command": "export $(cat .env | xargs) && mvn spring-boot:run",
+      "env": {}
+    },
+    {
+      "name": "transaction-service",
+      "cwd": "transaction-service",
+      "command": "export $(cat .env | xargs) && mvn spring-boot:run",
+      "env": {}
+    }
+  ]
+}
