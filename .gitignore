@@ -1,0 +1,50 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VSCode
+.vscode/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+*.env
+/payout-service/.env
+/ledger-service/.env
+/merchant-service/.env
+/transaction-service/.env
+
+
+# Spring Boot
+spring-boot-dashboard.json
+
+# Jar files
+*.jar
+*.war
+
+# Other
