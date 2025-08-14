@@ -3,6 +3,8 @@ package com.odeal.merchant.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -16,17 +18,18 @@ public class Merchant {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     
-    @NotBlank
+    @NotBlank(message = "Name is required")
     @Column(nullable = false)
     private String name;
     
-    @Email
-    @NotBlank
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email is required")
     @Column(nullable = false, unique = true)
     private String email;
     
-    @NotBlank
+    @NotBlank(message = "IBAN is required")
     @Column(nullable = false)
+    @Pattern(regexp = "^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$", message = "Invalid IBAN format")
     private String iban;
     
     @CreationTimestamp
