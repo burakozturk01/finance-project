@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Pattern;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,24 +18,28 @@ public class Merchant {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Schema(hidden = true, required = true)
     private UUID id;
     
     @NotBlank(message = "Name is required")
     @Column(nullable = false)
+    @Schema(description = "Full name of the merchant", required = true, example = "John Doe")
     private String name;
     
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is required")
     @Column(nullable = false, unique = true)
+    @Schema(description = "Email of the merchant", required = true, example = "john.doe@example.com")
     private String email;
     
     @NotBlank(message = "IBAN is required")
     @Column(nullable = false)
     @Pattern(regexp = "^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$", message = "Invalid IBAN format")
+    @Schema(description = "IBAN of the merchant", required = true, example = "TR12345678901234567890123456")
     private String iban;
     
-    @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
+    @Schema(hidden = true, required = true)
     private LocalDateTime createdAt;
     
     // Constructors
