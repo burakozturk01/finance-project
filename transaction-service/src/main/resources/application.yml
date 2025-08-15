@@ -25,3 +25,7 @@ management:
     web:
       exposure:
         include: "*"
+
+merchant:
+  service:
+    url: ${MERCHANT_SERVICE_URL}

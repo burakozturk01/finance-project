@@ -14,6 +14,9 @@ public class TransactionService {
     @Autowired
     private RabbitMQSender rabbitMQSender;
 
+    @Autowired
+    private ValidationService validationService;
+
     public Transaction processTransaction(Transaction transaction) {
         // 1. Set initial status
         transaction.setStatus(Transaction.TransactionStatus.RECEIVED);
@@ -21,8 +24,8 @@ public class TransactionService {
         // 2. Save the initial transaction
         Transaction savedTransaction = transactionRepository.save(transaction);
         
-        // 3. Perform validation (basic validation for now)
-        boolean isValid = validateTransaction(savedTransaction);
+        // 3. Perform validation
+        boolean isValid = validationService.validateTransaction(savedTransaction);
         
         if (isValid) {
             savedTransaction.setStatus(Transaction.TransactionStatus.VALIDATED);
@@ -34,11 +37,5 @@ public class TransactionService {
         
         // 5. Update and return the final state
         return transactionRepository.save(savedTransaction);
-    }
-
-    private boolean validateTransaction(Transaction transaction) {
-        // In a real-world scenario, this would involve more complex logic,
-        // such as checking against a fraud detection system, verifying merchant status, etc.
-        return transaction.getAmount() != null && transaction.getAmount().doubleValue() > 0;
     }
 }

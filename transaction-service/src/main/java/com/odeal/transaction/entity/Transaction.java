@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @Entity
 @Table(name = "transactions")
@@ -16,19 +17,23 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Schema(hidden = true, required = true)
     private UUID id;
 
     @NotNull
     @Column(name = "merchant_id", nullable = false)
+    @Schema(description = "ID of the merchant", required = true, example = "123e4567-e89b-12d3-a456-426614174000")
     private UUID merchantId;
 
     @NotNull
     @DecimalMin("0.01")
     @Column(nullable = false)
+    @Schema(description = "Amount of the transaction", required = true, example = "100.00")
     private BigDecimal amount;
 
     @NotBlank
     @Column(nullable = false)
+    @Schema(description = "Currency of the transaction", required = true, example = "USD")
     private String currency;
 
     @NotNull
@@ -41,8 +46,8 @@ public class Transaction {
     @Column(nullable = false)
     private TransactionStatus status;
 
-    @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
+    @Schema(description = "Creation timestamp of the transaction", required = true, hidden = true)
     private LocalDateTime createdAt;
 
     public enum CardScheme {
@@ -50,11 +55,22 @@ public class Transaction {
     }
 
     public enum TransactionStatus {
-        RECEIVED, VALIDATED, FAILED
+        RECEIVED, PENDING, PAID, VALIDATED, FAILED
     }
 
     // Constructors
-    public Transaction() {}
+    public Transaction() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public Transaction(UUID merchantId, BigDecimal amount, String currency, CardScheme cardScheme) {
+        this.merchantId = merchantId;
+        this.amount = amount;
+        this.currency = currency;
+        this.cardScheme = cardScheme;
+        this.status = TransactionStatus.RECEIVED;
+        this.createdAt = LocalDateTime.now();
+    }
 
     // Getters and Setters
     public UUID getId() {

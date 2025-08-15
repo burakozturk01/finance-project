@@ -86,10 +86,10 @@ Make sure you have the following software installed:
 
     The services will be available at the following ports:
 
-    -   **Merchant Service:** `http://localhost:8081`
-    -   **Transaction Service:** `http://localhost:8082`
-    -   **Ledger Service:** `http://localhost:8083`
-    -   **Payout Service:** `http://localhost:8084`
+-   **Merchant Service:** `http://localhost:8083`
+-   **Transaction Service:** `http://localhost:8082`
+-   **Ledger Service:** `http://localhost:8080`
+-   **Payout Service:** `http://localhost:8084`
     -   **RabbitMQ Management:** `http://localhost:15672`
     -   **PostgreSQL:** `localhost:5432`
 
@@ -98,7 +98,7 @@ Make sure you have the following software installed:
 ### Merchant Service
 
 -   **Description:** Manages merchant data, including creation, retrieval, and updates.
--   **Port:** `8081`
+-   **Port:** `8083`
 
 #### API Endpoints
 
@@ -117,7 +117,7 @@ Make sure you have the following software installed:
 ### Ledger Service
 
 -   **Description:** Subscribes to transaction events and records them in the ledger. It maintains a detailed history of all financial activities.
--   **Port:** `8083`
+-   **Port:** `8080`
 
 #### API Endpoints
 
